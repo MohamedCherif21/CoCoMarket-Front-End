@@ -1,0 +1,24 @@
+<div class="container-fluid">
+
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Liste des produit du catalogue :  </h1>
+</div>
+
+<div class="row">
+  <div class="col-xl-3 col-md-6 mb-4"*ngFor="let produit of produits">
+      <div class="card mb-4 shadow-sm">
+        <img [src]="produit.img" class="card-img-top">
+          <div class="card-body">
+          <h5 class="card-title">{{ produit.nom }}</h5>
+          <p class="card-text">{{ produit.description }}</p>
+          <p class="card-text">{{ produit.prix }}</p>
+                       
+        </div>
+        <button class="btn btn-danger" (click)="removeProductFromCatalogue(produit.id)">Remove</button>    
+      </div>
+    </div>
+    
+
+  </div>
+
+  

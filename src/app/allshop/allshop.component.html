@@ -1,0 +1,22 @@
+
+<div class="container"> 
+  <div class="row"> 
+  <div class="col-xl-6" *ngFor="let item of shop" (click)="onItemClick(item)" >
+    <div class="blog-item mb-30">
+      <div class="post-thumb">
+        <a href="blog-single.html"><img src="data:image/jpeg;base64,{{item.qrCodeShop}}" alt="" class="img-fluid"></a>
+      </div>
+      <div class="blog-content">
+        <div class="post-meta">
+          <span class="post-date"><i class="fa fa-calendar-alt mr-2">    {{item.adresse}}  </i>May 9, 2021</span>
+          <span class="post-comments"><i class="far fa-comments"></i>15 </span>
+        </div>
+        <h3 class="post-title"> <a>{{ item.nom }} </a></h3>
+        
+        <p>{{item.description}}</p>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  

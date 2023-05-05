@@ -1,0 +1,41 @@
+<form #carForm="ngForm" (ngSubmit)="updateLiv()">
+  <div class="form-group">
+    <label>validation</label>
+    <input type="text" name="description" class="form-control" [(ngModel)]="car.validation" required>
+  </div>
+
+  <div class="form-group">
+    <label>Volume</label>
+    <input type="text" class="form-control" name="volume" [(ngModel)]="car.volumeL" required>
+  </div>
+
+  <div class="form-group">
+    <label>wheight</label>
+    <input type="text" class="form-control" name="wheight" [(ngModel)]="car.weightL" required>
+  </div>
+
+  <div class="form-group">
+    <label>region</label>
+    <select class="form-control" name="type" [(ngModel)]="car.region">
+      <option value="tunis">tunis</option>
+      <option value="nabeul">nabeul</option>
+      <option value="sfax">sfax</option>
+      <option value="beja">beja</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Date de sortie</label>
+    <input type="text" class="form-control" name="sortie" [(ngModel)]="car.date_Sortie" required>
+  </div>
+    <div class="form-group">
+      <label>date d'arrivée</label>
+      <input type="text" class="form-control" name="arrivee" [(ngModel)]="car.date_Arrive" required>
+    </div>
+    <div class="form-group">
+      <label>etat</label>
+      <input type="text" class="form-control" name="etat" [(ngModel)]="car.etat" required>
+    </div>
+  <div class="form-group">
+    <button class="btn btn-danger btn-block"  type="submit" value="Submit">Submit</button>
+  </div>
+</form>

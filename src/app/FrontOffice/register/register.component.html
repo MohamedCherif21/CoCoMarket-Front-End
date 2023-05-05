@@ -1,0 +1,252 @@
+<!--<form #registerForm="ngForm" (ngSubmit)="onRegister(registerForm)">
+    <div>
+      <label for="request">lastName:</label>
+      <input type="text"  name="lastName"  ngModel>
+    </div> 
+      <div>
+        <label for="request">firstName:</label>
+        <input type="text"  name="firstName" ngModel>
+      </div>
+      <div>
+        <label for="request">email:</label>
+        <input type="text"  name="email" ngModel>
+      </div>
+      <div>
+        <label for="request">password:</label>
+        <input type="text"  name="password" ngModel>
+      </div>
+    
+      <div>
+        <label for="request">assosiationInfo:</label>
+        <input type="text"  name="assosiationInfo" ngModel>
+      </div>
+      <div>
+        <label for="request">region :</label>
+        <input type="text"  name="region" ngModel>
+      </div>
+
+      <div>
+        <label for="request">numPhone:</label>
+        <input type="text"  name="numPhone" ngModel>
+      </div>
+    <div>
+      <label for="file">File:</label>
+      <input type="file" id="file" name="file" (change)="onFileSelected($event)" required>
+    </div>
+    <button type="submit" [disabled]="!registerForm.valid">Submit</button>
+  </form>-->
+  
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="description" content="Edumel- Education Html Template by dreambuzz">
+  <meta name="keywords" content="education,edumel,instructor,lms,online,instructor,dreambuzz,bootstrap,kindergarten,tutor,e learning">
+  <meta name="author" content="dreambuzz">
+
+  <title>Edumel- Education Html Template</title>
+
+  <!-- Mobile Specific Meta-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- bootstrap.min css -->
+  <link rel="stylesheet" href="/assets/FRONT/vendors/bootstrap/bootstrap.css">
+  <!-- Iconfont Css -->
+  <link rel="stylesheet" href="/assets/FRONT/vendors/awesome/css/fontawesome-all.min.css">
+  <link rel="stylesheet" href="/assets/FRONT/vendors/flaticon/flaticon.css">
+  <link rel="stylesheet" href="/assets/FRONT/fonts/gilroy/font-gilroy.css">
+  <link rel="stylesheet" href="/assets/FRONT/vendors/magnific-popup/magnific-popup.css">
+  <!-- animate.css -->
+  <link rel="stylesheet" href="/assets/FRONT/vendors/animate-css/animate.css">
+  <link rel="stylesheet" href="/assets/FRONT/vendors/animated-headline/animated-headline.css">
+  <link rel="stylesheet" href="/assets/FRONT/vendors/owl/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="/assets/FRONT/vendors/owl/assets/owl.theme.default.min.css">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="/assets/FRONT/css/woocomerce.css">
+  <link rel="stylesheet" href="/assets/FRONT/css/style.css">
+  <link rel="stylesheet" href="/assets/FRONT/css/responsive.css">
+
+</head>
+
+
+
+
+
+
+
+
+<section class="woocommerce single page-wrapper">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-xl-7">
+                
+                <div class="signup-form">
+                    <div class="form-header">
+                        <h2 class="font-weight-bold mb-3">Sign Up</h2>
+                        <p class="woocommerce-register">
+                            Already have an account? <a href="#"  routerLink="/user/login" class="text-decoration-underline">Log in</a>
+                        </p>
+                    </div>
+                    <!--  TYPE USER   -->                  
+  <select id="mySelect">
+    <option value="">Account Type</option>
+    <option value="BYER">BYER</option>
+    <option value="SELLER">SELLER</option>
+    <option value="DELEVRY">DELEVRY</option>
+    <option value="KOFFA">KOFFA</option>
+  </select>
+
+                    <form  #registerForm="ngForm" (ngSubmit)="onRegister(registerForm)" class="woocommerce-form woocommerce-form-register register">
+
+                        <div class="row">
+                            <div class="col-xl-6">
+                                <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                    <label>First Name&nbsp;<span class="required">*</span></label>
+                                    <input type="text" class="form-control" name="firstName"  ngModel placeholder="First Name">
+                                </p>
+                            </div>
+                            <div class="col-xl-6">
+                                <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                    <label>Last Name&nbsp;<span class="required">*</span></label>
+                                    <input type="text" class="form-control"  name="lastName"  ngModel  placeholder="Last Name">
+                                </p>
+                            </div>
+                            <div class="col-xl-6">
+                                <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                    <label>assosiation Info&nbsp;<span class="required">*</span></label>
+                                    <input type="text" class="form-control" name="assosiationInfo"  value="" placeholder="Information About Assosiation">
+                                </p>
+                            </div>
+
+                            <div class="col-xl-6">
+                                <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                    <label>Email&nbsp;<span class="required">*</span></label>
+                                    <input type="email"  #email="ngModel" id="emaill" class="form-control" name="email" ngModel value="" placeholder="Your Email"pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}" required >
+                                </p>
+                            </div>
+                            <div class="alert alert-danger" *ngIf="email.touched && email.invalid">
+                                <div *ngIf="email.errors?.['required']">required </div>
+                                <div *ngIf="email.errors?.['pattern']">Format mail</div></div>
+                            <div class="col-xl-6">
+                                <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                    <label>Password&nbsp;<span class="required">*</span></label>
+                                    <input type="password" #Repasword="ngModel"  ngModel class="form-control" name="password" ngModel value="" placeholder="Password"
+                                    minlength="8"
+                                    required ConfirmedValidator="password,Repasword"
+                                    >
+                                </p>
+                            </div>
+                            <div  *ngIf="Repasword.errors && (Repasword.dirty || Repasword.touched)" class="text-danger">
+                                <div [hidden]="!Repasword.errors['required']">
+                                    Password is required  
+                                </div>                          
+                              <div [hidden]="!Repasword.errors['minlength']">
+                                    Password should be at least 8 characters long.
+                                </div>                  
+                                <div [hidden]="!Repasword.errors['confirmedValidator']">
+                                    Passwords do not match
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                    <label>Re-Enter Password&nbsp;<span class="required">*</span></label>
+                                    <input type="password" #Repasword="ngModel"  ngModel required class="form-control" name="re-password" value="" placeholder="Re-Enter Password" 
+                                    minlength="8"
+                                    required ConfirmedValidator="password,Repasword"
+                                    >
+                                </p>
+                            </div>
+                            <div  *ngIf="Repasword.errors && (Repasword.dirty || Repasword.touched)" class="text-danger">
+                                <div [hidden]="!Repasword.errors['required']">
+                                    Password is required  
+                                </div>                          
+                                <div [hidden]="!Repasword.errors['minlength']">
+                                    Password should be at least 8 characters long.
+                                </div>                  
+                                <div [hidden]="!Repasword.errors['confirmedValidator']">
+                                    Passwords do not match
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                              <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                  <label>numPhone&nbsp;<span class="required">*</span></label>
+                                  <input   #numPhone="ngModel" class="form-control" name="numPhone" ngModel value="" placeholder="+216 .. ... ..."
+                                  pattern="^(\+216|00216|0)?([5-7]\d{7})$"
+                                  maxlength="13"
+                                  ><!--+21655619255-->
+                              </p>
+                          </div>
+                          <div class="text-danger" *ngIf="numPhone.touched && numPhone.invalid">
+                            <div *ngIf="numPhone.errors?.['required']">required </div>
+                            <div *ngIf="numPhone.errors?.['maxlength']">max 13 Number</div>
+                            <div *ngIf="numPhone.errors?.['pattern']">Format </div>
+                        </div>
+                          <div class="col-xl-6">
+                              <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                  <label>Region&nbsp;<span class="required">*</span></label>
+                                 
+                                  <input  class="form-control" name="region" value="" placeholder="Region">
+                              </p>
+                          </div>
+                          
+                         
+                            <div>
+                              <label for="file">File:</label>
+                              <input type="file" id="file" #file="ngModel" ngModel name="file" (change)="onFileSelected($event)" required>
+                            </div>
+                            <div class="alert alert-danger" *ngIf="file.touched && file.invalid">
+                                <div *ngIf="file.errors?.['required']">required </div>
+                                </div>
+                            <div class="col-xl-12">
+                                <div class="d-flex align-items-center justify-content-between py-2">
+                                    <p class="form-row">
+                                        <label class="woocommerce-form__label woocommerce-form__label-for-checkbox woocommerce-form-login__policy">
+                                            <input class="woocommerce-form__input woocommerce-form__input-checkbox" name="policy" type="checkbox" id="policy" value="forever"> <span>Accept the Terms and Privacy Policy</span>
+                                        </label>
+                                    </p>
+            
+                                    <p class="woocommerce-LostPassword lost_password">
+                                        <a (click)="sendCodeMail(email.value)" routerLink="/user/ResetPasswordDirect"  >Forgot password?</a>
+                                    </p>
+                               </div>
+                            </div>
+                        </div>
+                      
+                        <p class="woocommerce-FormRow form-row">
+                            <button type="submit" [disabled]="!registerForm.valid" class="woocommerce-button button" name="register" value="Register">Register</button>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--shop register end-->
+
+    <!-- 
+    Essential Scripts
+    =====================================-->
+    
+    <!-- Main jQuery -->
+    <script src="/assets/FRONT/vendors/jquery/jquery.js"></script>
+    <!-- Bootstrap 5:0 -->
+    <script src="/assets/FRONT/vendors/bootstrap/popper.min.js"></script>
+    <script src="/assets/FRONT/vendors/bootstrap/bootstrap.js"></script>
+    <!-- Counterup -->
+    <script src="/assets/FRONT/vendors/counterup/waypoint.js"></script>
+    <script src="/assets/FRONT/vendors/counterup/jquery.counterup.min.js"></script>
+    <!--  Owl Carousel -->
+    <script src="/assets/FRONT/vendors/owl/owl.carousel.min.js"></script>
+    <!-- Isotope -->
+    <script src="/assets/FRONT/vendors/isotope/jquery.isotope.js"></script>
+    <script src="/assets/FRONT/vendors/isotope/imagelaoded.min.js"></script>
+    <!-- Animated Headline -->
+    <script src="/assets/FRONT/vendors/animated-headline/animated-headline.js"></script>
+    <!-- Magnific Popup -->
+    <script src="/assets/FRONT/vendors/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <script src="/assets/FRONT/js/script.js"></script>
+
+
+
+
+   
+   

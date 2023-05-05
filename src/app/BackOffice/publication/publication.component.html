@@ -1,0 +1,50 @@
+
+<!--<div class="container">
+  <div class="row col-md-6 col-md-offset-2 custyle">
+    <table class="table table-striped custab">
+      <thead>
+      <tr>
+       <th>Date_Publication</th>
+        <th>Publications</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let Publication of publication">
+        
+
+        <td>{{Publication.datePub}}</td>
+        <td>{{Publication.publications}}</td>
+
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+-->
+
+<div class="ag-format-container">
+    <div class="ag-courses_box">
+      <div *ngFor="let Publication of publication; let i=index" class="ag-courses_item" [ngClass]="{'ag-courses_item_last': (i+1)%3 == 0}">
+        <a href="#" class="ag-courses-item_link">
+          
+  
+          <div class="ag-courses-item_title"routerLink="/user/detailss/{{Publication.id}}">
+            {{Publication.publications}}&#160;
+          </div>  
+  
+          <div class="ag-courses-item_date-box">
+            Date:
+            <span class="ag-courses-item_date">
+              {{Publication.datePub}}
+            </span>
+          </div>
+          <button class="btn btn-primary"routerLink="/user/commentaires/{{Publication.id}}">Commenter</button>
+          <button class="like-button"routerLink="/user/reaction/{{Publication.id}}">Reaction</button>
+  
+         </a>
+      </div>
+    </div>
+  </div>
+  
+  
+  

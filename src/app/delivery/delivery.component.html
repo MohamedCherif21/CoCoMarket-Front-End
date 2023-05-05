@@ -1,0 +1,37 @@
+
+<div class="container">
+  <div class="row col-md-14 col-md-offset-2 custyle">
+    <table class="table table-striped custab">
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>Date d'arrivée</th>
+        <th>Date de sortie</th>
+        <th>Region</th>
+        <th>Volume</th>
+        <th>Weight</th>
+        <th>Validation</th>
+        <th>Etat de Livraison</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let l of ListLiv">
+        <td>{{l.id}}</td>
+        <td>{{l.date_Arrive}}</td>
+        <td>{{l.date_Sortie}}</td>
+        <td>{{l.region}}</td>
+        <td>{{l.volumeL}}</td>
+        <td>{{l.weightL}}</td>
+        <td>{{l.validation}}</td>
+        <td>{{l.etat}}</td>
+        <td><button (click)="updateliv(l.id)" >Update</button></td>
+        <td><button (click)="deleteLiv(l.id)">Delete</button></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<br>
+Create new Deliveries <a [routerLink]="['/admin/Createliv']"><i>Add new Delivery</i></a>

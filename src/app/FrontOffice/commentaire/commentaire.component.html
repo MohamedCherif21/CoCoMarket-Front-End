@@ -1,0 +1,9 @@
+<div class="ag-format-container">
+    <form #formCommentaire="ngForm" (ngSubmit)="ajouterCommentaire(31)">
+      <div class="form-group">
+        <label for="commentaire">Commentaire :</label>
+        <textarea name="commentaire" id="commentaire" class="form-control" [(ngModel)]="commentaire.commentaire" required></textarea>
+      </div>
+      <button type="submit" routerLink="/user/publication" class="btn btn-primary">Ajouter</button>
+    </form>
+  </div>

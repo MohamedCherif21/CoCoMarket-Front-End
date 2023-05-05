@@ -1,0 +1,25 @@
+<div *ngIf="isVide()">
+    <img src="/src/assets/Back/img/Association.jpg" height="850" alt="">
+    
+    </div>
+    <div class="wrapper">
+        <div class="container">
+            <tr *ngFor="let user of users">
+          <!-- Box [1] -->
+          <div class="box">
+            <div class="box__head">
+              <img src="data:image/jpeg;base64,{{user.img}}" height="120">
+            </div>
+            <div class="box__content">
+              <h2>{{user.last_name}} {{user.first_name}}</h2>
+              <p>{{user.autority[0].name}}</p>
+            </div>
+            <div class="box__social">
+                <button type="button" class="btn btn-primary" routerLink="/admin/Detailsusers/{{user.id}}">+ Info</button>
+              <div *ngIf="user.enabled">  <button type="button" class="btn btn-dark" (click)="BanUnBan(user.id)">Block</button></div>
+              <div *ngIf="!user.enabled">  <button type="button" class="btn btn-light" (click)="BanUnBan(user.id)">Unblock</button></div>
+            </div>
+             </div> 
+            </tr>
+        </div>
+    </div>

@@ -1,0 +1,56 @@
+
+<form (ngSubmit)="chercher(parametre.value)">
+    <div class="form-group">
+      <label for="parametre">Rechercher une commande :</label>
+      <input type="text" class="form-control" id="parametre" name="parametre" #parametre>
+    </div>
+    <button type="submit" class="btn btn-primary">Rechercher</button>
+  </form>
+<div class="body table-responsive">
+    <div class="woocommerce-notices-wrapper">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                
+                <th>date de commande</th>
+                <th>Products</th>
+                <th>Payment method</th>
+                <th>Products number</th>
+                <th>shop_name</th> 
+                <th>total weight</th>
+                <th>tax</th>
+                <th>total price</th>
+                <th>Etat</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr *ngFor="let u of listCommandes">
+                
+                <td>{{u.dateCmd}}</td>
+                <td>{{u.les_produits}}</td>
+                <td>{{u.methode}}</td>
+                <td>{{u.nbProd}}</td>
+                <td>{{u.shop_name}}</td>
+                <td>{{u.total_weight}}</td>
+                <td>{{u.tax}}</td>
+                <td>{{u.total_price}}</td>
+                <td><strong [ngStyle]="{'background-color': u.etat === 'REFUSED'? 'red' :u.etat === 'EDITABLE'? 'orange' : u.etat === 'WAITING'? 'yellow' : u.etat === 'VALIDATED' ? 'green' : ''}">{{ u.etat }}</strong></td>
+                <ul>
+                <td>
+                    <button (click)="refuserCommande(u.id)">REFUSER</button>
+                    
+                    <button (click)="accepterCommande(u.id)">ACCEPTER</button>
+
+                    <button (click)="showdetailscommande(u.id)">AFFICHER</button>
+                    
+
+                </td>
+                </ul>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+

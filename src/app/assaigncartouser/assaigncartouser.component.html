@@ -1,0 +1,15 @@
+<form #carForm="ngForm" >
+  <div class="form-group">
+    <label>chose a region</label>
+    <select class="form-control" name="region" [(ngModel)]="region">
+      <option value="tunis">tunis</option>
+      <option value="nabeul">nabeul</option>
+      <option value="sfax">sfax</option>
+      <option value="beja">beja</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-danger btn-block" (click)="assaigncartouser()">Submit</button>
+  </div>
+</form>
+

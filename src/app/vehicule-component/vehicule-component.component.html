@@ -1,0 +1,31 @@
+
+  <div class="container">
+    <div class="row col-md-6 col-md-offset-2 custyle">
+      <table class="table table-striped custab">
+        <thead>
+        <tr>
+          <th>Id</th>
+          <th>Description</th>
+          <th>Type</th>
+          <th>Wheight</th>
+          <th>Volume</th>
+          <th>Update</th>
+          <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let vehicule of listCar">
+          <td>{{vehicule.id}}</td>
+          <td>{{vehicule.description}}</td>
+          <td>{{vehicule.type}}</td>
+          <td>{{vehicule.wheight}}</td>
+          <td>{{vehicule.volume}}</td>
+          <td><button (click)="updatecarr(vehicule.id)" >Update</button></td>
+          <td><button (click)="deleteCar(vehicule.id)">Delete</button></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <br>
+  if you want to add other vehicules <a [routerLink]="['/admin/AddCar']"><i>Add new Car</i></a>

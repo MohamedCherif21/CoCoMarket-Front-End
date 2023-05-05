@@ -1,0 +1,29 @@
+
+<div class="course-item">
+  <div class="single-course style-2 bg-shade border-0">
+    <div class="row g-0 align-items-center">
+      <div class="col-xl-5">
+        <div class="course-thumb" [style.background]="'url(' + getImageUrl(p.id) + ')'" >
+          <span class="category">Design</span>
+        </div>
+      </div>
+      <div class="col-xl-9">
+        <div class="course-content py-4 pt-xl-0">
+          <div class="course-price">{{p.prix}}</div>
+          <h3 class="course-title" >{{ p.nom }}</h3>
+          <div class="course-meta d-flex align-items-center">
+            <div class="author">
+              <img [src]="getImageUrl(p.id)" alt="" class="img-fluid" class="center">
+              <a href="#"></a>
+            </div>
+            <span class="students"><i class="far fa-user-alt"></i>{{p.reference}}</span>
+          </div>
+          <div>
+            <ngx-star-rating [(ngModel)]="p.raiting" maxStarRating="4" (click)="change(p)" [id]="p.id" activeColor="#ffd055" readOnly="true"   starSize="5px" space="1px"></ngx-star-rating>
+          </div>
+      
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

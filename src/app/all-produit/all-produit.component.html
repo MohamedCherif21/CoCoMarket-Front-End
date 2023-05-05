@@ -1,0 +1,21 @@
+
+<div class="container"> 
+	<div class="row"> 
+	<div class="col-xl-6" *ngFor="let produit of produits" >
+		<div class="blog-item mb-30">
+			<div class="post-thumb">
+			<img  [src]="getImageUrl(produit.id)" alt="" width="10" height="300">
+			</div>
+			<div class="blog-content">
+				<div class="post-meta">
+					<span class="post-date"><i class="post-title">    {{ produit.nom }}  </i></span>
+					<span class="post-comments"><i class="far fa-comments"></i>{{ produit.reference }}</span>
+				</div>
+				<h3 class="post-title"> <a>{{ produit.prix }} </a></h3>
+				
+			</div>
+		</div>
+	</div>
+	</div>
+	</div>
+	

@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row col-md-14 col-md-offset-2 custyle">
+      <table class="table table-striped custab">
+        <thead>
+        <tr>
+          <th>Id</th>
+          <th>publication</th>
+          <th>Date de pub</th>
+          
+        </tr>
+        </thead>
+        <tbody>
+      
+          <td>{{publication.id}}</td>
+          <td>{{publication.publications}}</td>
+          <td>{{publication.datePub}}</td>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <br>
+   <button [routerLink]="['/user/addpub']"><i>Add new Publication</i></button>
+   <button (click)="deletepub(publication.id)"><i>deletepub</i></button>

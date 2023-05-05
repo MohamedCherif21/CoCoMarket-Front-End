@@ -1,0 +1,71 @@
+
+<div class="col-lg-4 col-xl-4" >
+    <div class="course-sidebar course-sidebar-2 mt-5 mt-lg-0">
+     <div  class="course-widget course-details-info">
+        <div class="course-thumbnail">
+            <img src="/assets/FRONT/images/course/img_02.jpg" alt="" class="img-fluid w-100">
+        </div>
+    
+        <div  *ngIf="commande" class="price-header">
+            <h2 class="course-price">{{commande.total_price}} DT<span>{{(commande.total_price/remise).toFixed(2)}}</span></h2>
+            <span class="course-price-badge onsale">20% remise </span>
+        </div>
+    
+        <ul class="course-sidebar-list">
+            <li>
+              <div class="d-flex justify-content-between align-items-center">
+                <span><i class="far fa-clock"></i>order date</span>
+                {{commande.dateCmd}}
+            </div>
+              
+            </li>
+    
+                <li>
+                <div class="d-flex justify-content-between align-items-center">
+                    <span><i class="fa-product-hunt"></i>Products</span>
+                    {{commande.les_produits}}
+                </div>
+            </li>
+                <li>
+                <div class="d-flex justify-content-between align-items-center">
+                    <span><i class="fa-solid fa-square-9"></i>Products number</span>
+                    {{commande.nbProd}}
+                </div>
+            </li><li>
+              <div class="d-flex justify-content-between align-items-center">
+                <span><i class="fas fa-server"></i>Order Status</span>
+                <strong [ngStyle]="{'background-color': commande.etat === 'REFUSED'? 'red' :commande.etat === 'EDITABLE'? 'orange' : commande.etat === 'WAITING'? 'yellow' : commande.etat === 'VALIDATED' ? 'green' : ''}">{{ commande.etat }}</strong>
+            </div>
+            </li>
+                <li>
+                <div class="d-flex justify-content-between align-items-center">
+                    <span><i class="fa-solid fa-store"></i>Shops</span>
+                    {{commande.shop_name}}
+                </div>
+            </li>
+    
+            <li>
+                <div class="d-flex justify-content-between align-items-center">
+                    <span><i class="fas fa-money-check-alt"></i>Payment mode </span>
+                    {{ commande.methode }}
+                </div>
+            </li>
+            
+        </ul>
+        <div class="buy-btn">
+            <button (click)="effectuerPaiement(commande.id,commande.currency,token)" class="button button-enroll-course btn btn-main-2 rounded">
+                 <i class="fas fa-dollar-sign"></i> PAYER 
+            </button>
+        </div>
+    
+        <div class="course-meterial">
+            <h4 class="mb-3">Delivery</h4>
+            <ul class="course-meterial-list">
+                <li><i class="fal fa-long-arrow-right"></i>home delivery</li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+      

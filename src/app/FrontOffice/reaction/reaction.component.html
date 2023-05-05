@@ -1,0 +1,12 @@
+<div class="reaction-form">
+  <form #formReaction="ngForm" >
+    <div class="form-group">
+      <label for="reactionType">Type de réaction:</label>
+      <select name="reactionType" id="reactionType" class="form-control" [(ngModel)]="reaction.reactionType" required>
+        <option value="LIKE">LIKE</option>
+        <option value="LOVE">LOVE</option>
+      </select>
+    </div>
+    <button class="btn btn-primary" (click)="ajouterReaction(1,1)"routerLink="/user/publication">Ajouter une réaction</button>
+  </form>
+</div>

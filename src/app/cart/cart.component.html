@@ -1,0 +1,128 @@
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 col-xl-12">
+            <div class="woocommerce-cart">
+                <div class="woocommerce-notices-wrapper"></div>
+                <table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents" cellspacing="0" *ngIf="!paniervide(); else emptyCart">
+                  <thead>
+                    <tr>
+                      <th class="product-name">Reference</th>
+                      <th class="product-name">Nom</th>
+                      <th class="product-name">Description</th>
+                      <th class="product-price">Prix</th>
+                      <th class="product-name">Qte</th>
+                      <th class="product-subtotal">Promotion</th>
+                      <th class="product-subtotal">Date de publication</th>
+                      <th class="product-subtotal">Action</th>
+                    </tr>
+                  </thead>
+                
+                  <tbody>
+                    <tr class="woocommerce-cart-form__cart-item cart_item" *ngFor="let product of products">
+                      <td>
+                        <a>{{product.reference}}</a>
+                      </td>
+                
+                      <td>
+                        <a>{{product.nom}}</a>
+                      </td>
+                
+                      <td>
+                        <a>{{product.description}}</a>
+                      </td>
+                
+                      <td>
+                        <a>{{product.prix}} DT</a>
+                      </td>
+                
+                      <ul>
+                
+                        <td *ngFor="let pc of produitcart">
+                          <a *ngIf="pc.produit === product.id">{{pc.quantity}}</a>
+                        </td>
+    
+                      </ul>
+                
+                      <td>
+                        <a>{{product.pourcentagePromotion}} %</a>
+                      </td>
+                
+                      <td>
+                        <a>{{product.datePublication}}</a>
+                      </td>
+                
+                      <td>
+                        <button (click)="addToCart(product.id)">+</button>
+                        <button (click)="deletfromCart(product.id)">-</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                
+            </div>
+            <ng-template #emptyCart>
+              <!-- Empty cart image -->
+              <div style="text-align: center;">
+                <img alt="A Rockhopper Penguin standing on a beach." src="/assets/FRONT/images/panier_vide.jpg" style="display: block;">
+                <a (click)="commencerachat()" class="checkout-button button alt wc-forward" style="display: block; margin-top: 10px;">
+                  Continue shopping
+                </a>
+            </div>
+            </ng-template>
+        </div>
+    </div>
+  
+    <div class="row justify-content-end">
+        <div class="col-lg-5">
+            <div class="cart-collaterals mt-5">
+              
+                <div class="cart_totals ">
+                    <h2>Cart totals</h2>
+                    <form  (ngSubmit)="ajoutercommande(commande,this.USER.id,coupon)" class="checkout_coupon woocommerce-form-coupon" method="post">
+  
+                      <p>If you have a coupon code, please apply it below.</p>
+  
+                      <p class="form-row form-row-first">
+                          <input type="text" [(ngModel)]="coupon" name="coupon" class="input-text" placeholder="Coupon code" id="coupon" >
+                      </p>
+                      <div class="clear"></div>
+                  </form>
+                    <table class="shop_table shop_table_responsive" cellspacing="0">
+                      
+                        <tbody><tr class="cart-subtotal">
+                            <th>Products number</th>
+                            <td data-title="Subtotal"><strong><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol"></span>{{numProducts}}</span></strong></td>
+                        </tr>
+                        <tr class="order-total">
+                            <th>Total</th>
+                            <td data-title="Total"><strong><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">{{totalprice}} DT</span></span></strong> </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="wc-proceed-to-checkout">
+                        <a (click)="ajoutercommande(commande,this.USER.id,coupon)" class="checkout-button button alt wc-forward">
+                          Place Order
+                        </a>
+                    </div>
+                
+                    <div class="wc-proceed-to-checkout">
+                      <a (click)="showcommandes()" class="checkout-button button alt wc-forward">
+                        Check Orders 
+                      </a>
+                      <a (click)="commencerachat()" class="checkout-button button alt wc-forward" style="display: block; margin-top: 10px;">
+                        Continue shopping
+                    </a>
+                  </div>
+                  
+                </div>
+            </div>
+        </div>
+        
+    </div>
+  </div>
+  
+     
+     
+  

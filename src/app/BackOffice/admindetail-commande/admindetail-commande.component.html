@@ -1,0 +1,29 @@
+<div *ngIf="commande" class="card">
+  <div class="card-header">
+    Commande n°{{ commande.id }}
+  </div>
+  <div class="card-body">
+    <p>Date de commande : {{ commande.dateCmd }}</p>
+    <p>Shop Name : {{ commande.shop_name }}</p>
+    <p>Shop Address: {{ commande.shop_address }}</p>
+    <p>Buyer Email: {{ commande.buyer_email }}</p>
+    <p>Buyer Address : {{ commande.buyer_Address }}</p>
+    <p>Tax : {{ commande.tax }}</p>
+    <p>Nombre de produits : {{ commande.nbProd }}</p>
+    <p>Prix total : {{ commande.total_price }} DT</p>
+    <p>Poids total : {{ commande.total_weight }} kg</p>
+    <p>Products : {{ commande.les_produits }}</p>
+    <p>État : <strong [ngStyle]="{'background-color': commande.etat === 'REFUSED'? 'red' :commande.etat === 'EDITABLE'? 'orange' : commande.etat === 'WAITING'? 'yellow' : commande.etat === 'VALIDATED' ? 'green' : ''}">{{ commande.etat }}</strong></p>
+
+    <p>Mode de paiement : {{ commande.payment_mode }}</p>
+    <p>Méthode : {{ commande.methode }}</p>
+
+    <ul class="list-inline">
+      <li class="list-inline-item"><button (click)="accepterCommande(commande.id)" class="btn btn-success">ACCEPTER</button></li>
+      <li class="list-inline-item"><button (click)="refuserCommande(commande.id)" class="btn btn-danger">REFUSER</button></li>
+    </ul>
+    <ul class="list-inline">
+      <li class="list-inline-item"><button (click)="telechargerFacture(commande.id)" class="btn btn-primary">Télécharger Facture</button></li>
+    </ul>
+  </div>
+</div>
